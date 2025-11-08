@@ -2,7 +2,7 @@ name: Cron Job
 
 on:
     schedule:
-        - cron: ""
+        - cron: "not valid to not get scheduled"
 
 jobs:
     cron:

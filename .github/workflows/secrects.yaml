@@ -1,8 +1,7 @@
 name: Secrets test
 
 on:
-    push: 
-        branches: ["dev"]
+    workflow_dispatch:
 
 env:
     API_CSPROJ_PATH: "./src/GitHubActionsDotNet.Api/GitHubActionsDotNet.Api.csproj"
