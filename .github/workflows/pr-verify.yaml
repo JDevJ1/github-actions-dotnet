@@ -18,10 +18,10 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0
+          dotnet-version: 9.0
 
-      - name: Build with dotnet
+      - name: dotnet build
         run: dotnet build --configuration Release
         
-      - name: Dotnet test
+      - name: dotnet test
         run: dotnet test --configuration Release --no-build

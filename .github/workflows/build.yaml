@@ -1,0 +1,33 @@
+name: Build project
+
+on:
+    push: 
+        branches: [ dev ]
+
+    workflow_dispatch:
+
+jobs:
+    build:
+        name: Build project
+        runs-on: ubuntu latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: actions/setup-dotnet@v4
+              with:
+                dotnet-version: 9.0
+
+            - name: dotnet build
+              run: dotnet build -c Release
+
+            - name: dotnet test
+              run: dotnet test -c Release --no-build
+
+            - name: dotnet publish
+              run: dotnet publish src/GitHubActionsDotNet.Api/GitHubActionsDotNet.Api.csproj -c Release -o artifacts
+
+            - uses: actions/upload-artifact@v4
+              with: 
+                name: GitHubActionsDotNet.Api
+                path: artifacts
