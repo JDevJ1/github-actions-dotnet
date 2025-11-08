@@ -1,0 +1,19 @@
+name: Secrets test
+
+on:
+    push: 
+        branches: ["dev"]
+
+env:
+    API_CSPROJ_PATH: "./src/GitHubActionsDotNet.Api/GitHubActionsDotNet.Api.csproj"
+
+jobs:
+    secrets:
+        name: Secrets test
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: "Echo env var" 
+              run: |
+                echo $API_CSPROJ_PATH
+                echo ${{ secrets.API_KEY }}
