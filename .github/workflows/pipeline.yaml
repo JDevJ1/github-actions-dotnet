@@ -39,7 +39,7 @@ jobs:
   deploy_dev:
     name: Deploy to dev
     needs: build
-    uses: ./.github/workflows/steps/deploy.yaml
+    uses: ./.github/workflows/step-deploy.yaml
     with:
       env: dev
     secrets: inherit
@@ -47,7 +47,7 @@ jobs:
   deploy_prod:
     name: Deploy to prod
     needs: deploy_dev
-    uses: ./.github/workflows/steps/deploy.yaml
+    uses: ./.github/workflows/step-deploy.yaml
     with:
       env: prod
     secrets: inherit
